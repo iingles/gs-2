@@ -19,7 +19,7 @@ export default {
   },
 
   data: () => ({
-    authToken: false
+    authToken: true
   })
 }
 </script>

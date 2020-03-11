@@ -11,7 +11,7 @@
                   style="display: none"
                   accept="image/png, image/jpeg, image/jpg"
                   name="profileImage"
-                  @change="updateProfile">
+                  >
                   <v-img
                   :src="user.profileImageUrl"
                   max-width=200
@@ -29,14 +29,12 @@
                   <v-btn
                     icon
                     v-if="localStorage.userId != this.$route.params.id"
-                    @click="updateFollower(localStorage.userId, 'add')"
                     >
                     <v-icon>mdi-account-plus</v-icon>
                   </v-btn>
                   <v-btn
                     icon
                     v-if="localStorage.userId != this.$route.params.id"
-                    @click="updateFollower(localStorage.userId, 'delete')"
                     >
                     <v-icon>mdi-account-minus</v-icon>
                   </v-btn>
@@ -64,7 +62,6 @@
               {{ user.status }}
               <v-btn
                icon
-               @click="updateProfile('status')"
                class="profile-action"
                v-if="this.$route.params.id === localStorage.userId"
                ><v-icon>mdi-pencil</v-icon>
@@ -73,7 +70,6 @@
               {{ user.bio }}
               <v-btn
               icon
-              @click="updateProfile('bio')"
               class="profile-action"
               v-if="this.$route.params.id === localStorage.userId"
               ><v-icon>mdi-pencil</v-icon>
@@ -81,18 +77,23 @@
             </v-col>
             <v-col cols="12" xs="12" lg="5" class="pa-10">
               <h1>Posts</h1>
-              <v-card
+              <template v-if="user.posts.length > 0">
+                <v-card
                 class="post"
                 v-for="post in user.posts"
                 :key="post._id"
                 outlined
                 tile
                 ripple
-              >
-              <SinglePost
-                :post="post"
-              />
-            </v-card>
+                >
+                <SinglePost
+                  :post="post"
+                />
+              </v-card>
+              </template>
+              <template v-else>
+                There's nothing here.
+              </template>
             </v-col>
             <v-spacer></v-spacer>
         </v-row>
