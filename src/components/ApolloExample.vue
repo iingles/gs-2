@@ -16,7 +16,7 @@
       :query="require('../graphql/HelloWorld.gql')"
       :variables="{ name }"
     >
-      <template slot-scope="{ result: { loading, error, data } }">
+      <template v-slot="{ result: { loading, error, data } }">
         <!-- Loading -->
         <div v-if="loading" class="loading apollo">Loading...</div>
 
@@ -24,7 +24,11 @@
         <div v-else-if="error" class="error apollo">An error occured</div>
 
         <!-- Result -->
-        <div v-else-if="data" class="result apollo">{{ data.hello }}</div>
+        <div v-else-if="data" class="result apollo">
+          <div v-for="(user, k ) in data.Users" :key="k" >
+            {{ user.name }} {{ user.surname }}
+          </div>
+        </div>
 
         <!-- No result -->
         <div v-else class="no-result apollo">No result :(</div>
