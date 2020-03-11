@@ -2,5 +2,6 @@ query allUsers {
   Users {
     name
     surname
+    photo
   }
 }

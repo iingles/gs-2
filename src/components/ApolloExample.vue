@@ -26,7 +26,7 @@
         <!-- Result -->
         <div v-else-if="data" class="result apollo">
           <div v-for="(user, k ) in data.Users" :key="k" >
-            {{ user.name }} {{ user.surname }}
+           <v-img height="50" width="50" :src="user.photo"></v-img> {{ user.name }} {{ user.surname }}
           </div>
         </div>
 

@@ -1,30 +1,25 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-    </v-app-bar>
-
-    <v-content>
-      <ApolloExample/>
-    </v-content>
+    <Header v-if="authToken"/>
+    <router-view></router-view>
+    <Footer v-if="authToken"/>
   </v-app>
 </template>
 
 <script>
-import ApolloExample from './components/ApolloExample'
+import Header from './components/shared/Header'
+import Footer from './components/shared/Footer'
 
 export default {
   name: 'App',
 
   components: {
-    ApolloExample
+    Header,
+    Footer
   },
 
   data: () => ({
-    //
+    authToken: false
   })
 }
 </script>
