@@ -26,19 +26,7 @@
         <div class="row">
           <section class="col-sm-12 col-md-6 col-lg-8 main-content">
             <h4>Main Content</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non arcu at sapien
-              interdum dignissim eu ac nisi. Duis ante nunc, mattis volutpat lectus id, mollis
-              tincidunt orci. Mauris vitae lorem nisi. Fusce a mollis lorem. Duis blandit est
-              libero, in convallis massa aliquam ut. In mollis eleifend nibh, eu commodo enim
-              ullamcorper fermentum. Quisque eleifend quam vitae lectus luctus pulvinar.
-              Quisque euismod ultrices maximus. Quisque facilisis vestibulum nisi quis mollis.
-              Curabitur in nulla turpis. Donec ornare facilisis placerat. Nullam non dolor
-              aliquet, pulvinar nunc vitae, aliquam massa. Integer volutpat arcu eu ante
-              rhoncus faucibus. Nullam ornare euismod sollicitudin. Quisque lacus ante, cursus
-              ac vulputate sit amet, commodo ut odio. Ut egestas eleifend massa, at mollis
-              nulla ullamcorper sed.
-            </p>
+           <router-view></router-view>
           </section>
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="side-content">
