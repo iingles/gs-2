@@ -20,7 +20,6 @@
         </b-button>
       </div>
     </b-navbar>
-
     <div class="container-fluid container-tw">
       <div class="container">
         <div class="row">
@@ -30,7 +29,13 @@
           </section>
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="side-content">
-              Side Content
+              <div>
+                <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img>
+              </div>
+              <Login/>
+                <b-button>Log in</b-button>
+                <p>or</p>
+                <b-button>Sign Up</b-button>
             </div>
           </div>
         </div>
@@ -39,6 +44,16 @@
 
   </div>
 </template>
+
+<script>
+import Login from './views/Login'
+
+export default {
+  components: {
+    Login
+  }
+}
+</script>
 
 <style lang="less">
 @twblue: #15202B;
