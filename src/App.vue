@@ -1,19 +1,10 @@
 <template>
   <v-app>
-    <Header
-      v-if="authToken"
-      @logout="logout()"
-    />
+    <Header/>
     <v-content>
-      <router-view
-      :token="authToken"
-      :authUser="authUser"
-      :key="$route.fullPath"
-      ></router-view>
+      <router-view></router-view>
     </v-content>
-    <Footer
-      v-if="authToken"
-    />
+    <Footer/>
   </v-app>
 </template>
 
@@ -31,16 +22,9 @@ export default {
   },
 
   data: () => ({
-    authToken: localStorage.getItem('token'),
-    authUser: localStorage.getItem('userId')
+
   }),
   methods: {
-    logout () {
-      this.authToken = ''
-      localStorage.removeItem('token')
-      localStorage.removeItem('userId')
-      this.$router.push('/login').catch(err => { throw err })
-    }
   }
 }
 </script>

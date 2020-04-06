@@ -68,7 +68,6 @@
 <script>
 import PostModal from '../components/posts/PostModal'
 import SinglePost from '../components/posts/SinglePost'
-import openSocket from 'socket.io-client'
 
 export default {
   props: {
@@ -111,13 +110,6 @@ export default {
       .catch(err => {
         console.log(err)
       })
-    // Set up socket.io
-    const socket = openSocket('http://localhost:3000')
-    socket.on('posts', data => {
-      if (data.action === 'create') {
-        vm.posts.unshift(data.post)
-      }
-    })
   },
   methods: {
     addPost (data) {
@@ -203,15 +195,6 @@ export default {
           console.log(err + 'failure')
         })
 
-      const socket = openSocket('http://localhost:3000')
-      socket.on('posts', data => {
-        if (data.action === 'update') {
-          const updatedPostIndex = vm.posts.findIndex(p => p._id === postData._id)
-          if (updatedPostIndex > -1) {
-            vm.posts[updatedPostIndex].content = postData.content
-          }
-        }
-      })
       vm.singlePostModal = false
     },
     deletePost (postId) {
@@ -231,15 +214,6 @@ export default {
         .catch(err => {
           console.log(err)
         })
-      const socket = openSocket('http://localhost:3000')
-      socket.on('posts', data => {
-        if (data.action === 'delete') {
-          const updatedPostIndex = vm.posts.findIndex(p => p._id === postId)
-          if (updatedPostIndex > -1) {
-            vm.posts.splice(updatedPostIndex, 1)
-          }
-        }
-      })
     },
     cancelModal () {
       // If the modal window is closed, reset everything
