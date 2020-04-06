@@ -1,1 +1,7 @@
-# my-final-project-frontend
+# Generic Social Network App Frontend
+
+
+## Isaac Ingles
+
+### LICENSE INFORMATION
+
