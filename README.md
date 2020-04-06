@@ -3,5 +3,5 @@
 
 ## Isaac Ingles
 
-### LICENSE INFORMATION
+
 
